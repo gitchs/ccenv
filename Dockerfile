@@ -35,3 +35,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     vim \
     openssh-server
 
+RUN mkdir -p /run/sshd /root/.ssh/
+COPY authorized_keys /root/.ssh/authorized_keys
+RUN chmod 0600 /root/.ssh/authorized_keys
