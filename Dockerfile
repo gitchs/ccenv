@@ -1,6 +1,8 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 COPY sources.list /etc/apt/sources.list
 COPY pip.conf /etc/pip.conf
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     sudo \
@@ -30,5 +32,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     libboost-all-dev \
     curl \
     wget \
-    vim
+    vim \
+    openssh-server
 
